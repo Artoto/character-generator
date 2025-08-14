@@ -129,7 +129,9 @@ const CharacterGenerator: React.FC = () => {
     } catch (error) {
       Swal.fire({
         title: "Error!",
-        text: "Do you want to continue",
+        text: `Do you want to continue: ${
+          error instanceof Error ? error.message : "Unknown error"
+        }`,
         icon: "error",
         confirmButtonText: "Cool",
       });
@@ -151,8 +153,8 @@ const CharacterGenerator: React.FC = () => {
               สร้างภาพตัวละครในนิยาย
             </h1>
             <p className="text-center text-sm mb-8 text-slate-400">
-              เขียนบรรยายลักษณะตัวละครที่คุณต้องการลงในช่องด้านล่าง แล้วกด
-              "สร้างภาพ" เพื่อให้ AI สร้างภาพให้
+              {`เขียนบรรยายลักษณะตัวละครที่คุณต้องการลงในช่องด้านล่าง แล้วกด
+              "สร้างภาพ" เพื่อให้ AI สร้างภาพให้คุณ`}
               <br />
               <span className="text-xs text-slate-500">
                 ใช้ Gemini 2.0 Flash Preview สำหรับการสร้างภาพ
