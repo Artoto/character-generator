@@ -13,7 +13,7 @@ export default function ViewImage({ imageUrl, onClose }: ViewImageProps) {
       >
         &times;
       </button>
-      <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  p-6 w-[95%] md:w-7xl rounded-lg shadow-lg z-60 text-center">
+      <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  p-6 w-[95%] md:w-7xl h-full rounded-lg shadow-lg z-60 text-center">
         {imageUrl && (
           <Image
             src={imageUrl}
