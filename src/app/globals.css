@@ -24,3 +24,15 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+select option {
+  color: #fff8dc; /* อาจไม่ทำงานในทุกเบราว์เซอร์สำหรับรายการใน dropdown */
+  background-color: #333; /* อาจไม่ทำงานในทุกเบราว์เซอร์ */
+}
+
+/* พยายามกำหนดสีเมื่อ option ถูกเลือก/โฮเวอร์ (อาจไม่ทำงาน) */
+select option:checked,
+select option:hover {
+  background-color: #555; /* อาจไม่ทำงานในทุกเบราว์เซอร์ */
+  color: #fff8dc;
+}
