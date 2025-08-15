@@ -42,7 +42,6 @@ const CharacterGenerator: React.FC = () => {
     const maxRetries = 3;
     const initialDelay = 1000;
     let retries = 0;
-
     while (retries < maxRetries) {
       try {
         const requestBody: GenerateImageRequest = {
@@ -63,12 +62,24 @@ const CharacterGenerator: React.FC = () => {
           if (response.status === 429) {
             // Rate limit - retry with exponential backoff
             const delay = initialDelay * Math.pow(2, retries);
+            Swal.fire({
+              title: "Error!",
+              text: `ขออภัยเนื่องเกิดข้อผิดพลาดในการสร้างภาพ กรุณาลองใหม่ภายหลััง`,
+              icon: "error",
+              confirmButtonText: "ปิด",
+            });
             await sleep(delay);
             retries++;
             continue;
           } else if (response.status >= 500) {
             // Server error - retry
             const delay = initialDelay * Math.pow(2, retries);
+            Swal.fire({
+              title: "Error!",
+              text: `ขออภัยเนื่องเกิดข้อผิดพลาดในการสร้างภาพ กรุณาลองใหม่ภายหลััง`,
+              icon: "error",
+              confirmButtonText: "ปิด",
+            });
             await sleep(delay);
             retries++;
             continue;
@@ -129,11 +140,11 @@ const CharacterGenerator: React.FC = () => {
     } catch (error) {
       Swal.fire({
         title: "Error!",
-        text: `Do you want to continue: ${
+        text: `ขออภัยเนื่องเกิดข้อผิดพลาดในการสร้างภาพ กรุณาลองใหม่ภายหลััง:${
           error instanceof Error ? error.message : "Unknown error"
         }`,
         icon: "error",
-        confirmButtonText: "Cool",
+        confirmButtonText: "ปิด",
       });
     }
   };
