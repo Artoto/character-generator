@@ -18,7 +18,7 @@ interface GenerateImageResponse {
 
 const CharacterGenerator: React.FC = () => {
   const [prompt, setPrompt] = useState<string>(
-    "ตัวละครชายผู้สง่างามและเป็นวีรบุรุษในสไตล์ CGI แบบแอนิเมชั่น 3D ผมยาวสลวย สวมชุดแฟนตาซีสีขาว-เงินที่มีรายละเอียด ตัวละครมีใบหน้าที่คมคายและหล่อเหลา มีสีหน้าจริงจัง แสงในภาพแบบภาพยนตร์ คุณภาพสูง"
+    "a beautiful elegant young woman, realistic 3D character, high quality, close-up portrait, long dark hair tied up in an elaborate bun with a large light blue flower headdress, intricate silver and blue earrings, traditional fantasy outfit, subtle face markings, a gentle and graceful expression, serene and dreamy atmosphere with soft blue light, a full moon behind, high detail, masterpiece, photorealistic."
   );
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [generatedImage, setGeneratedImage] = useState<string | null>(null);
