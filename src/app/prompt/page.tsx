@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Copy, Shuffle, Download } from "lucide-react";
 
 interface CharacterOptions {
@@ -134,9 +134,6 @@ const CharacterPromptGenerator: React.FC = () => {
 
   const promptTemplates = [
     "A {age} {gender} {nature} {theme} ,{style} style, character with {hair} {hairColor} hair and {eyeColor} eyes, {mood} expression, wearing {clothing}, {pose},  {background} background, {artStyle}, high quality, detailed",
-    // "{artStyle} of a {mood} {age} {gender} with beautiful {eyeColor} eyes and {hairColor} hair, {pose}, wearing {clothing}, {background} setting, {style} art style, masterpiece",
-    // "Character design: {age} {gender}, {hairColor} hair, {eyeColor} eyes, {clothing}, {pose}, {mood} mood, {style} aesthetic, {background}, {artStyle}, professional quality",
-    // "Portrait of a {gender} character, {age}, {hairColor} hair, {eyeColor} eyes, {mood} expression, {clothing}, {style} art style, {background}, {artStyle}, highly detailed",
   ];
 
   const generatePrompt = () => {
@@ -195,7 +192,7 @@ const CharacterPromptGenerator: React.FC = () => {
     }));
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     generatePrompt();
   }, [options]);
 
@@ -308,20 +305,20 @@ const CharacterPromptGenerator: React.FC = () => {
         <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg">
           <h4 className="font-semibold text-blue-800 mb-2">💡 How to use:</h4>
           <ul className="text-blue-700 text-sm space-y-1">
-            <li>• เลือกคุณสมบัติของตัวละครที่ต้องการ</li>
-            <li>• คลิก "Generate Prompt" เพื่อสร้าง prompt</li>
+            <li>{`• เลือกคุณสมบัติของตัวละครที่ต้องการ`}</li>
+            <li>{`• คลิก "Generate Prompt" เพื่อสร้าง prompt`}</li>
             <li>
-              • คัดลอก prompt ไปใช้กับ AI image generators เช่น Midjourney,
-              DALL-E, Stable Diffusion
+              {`• คัดลอก prompt ไปใช้กับ AI image generators เช่น Midjourney,
+              DALL-E, Stable Diffusion`}
             </li>
-            <li>• ลอง "Random Character" สำหรับความคิดสร้างสรรค์แบบสุ่ม</li>
+            <li>{`• ลอง "Random Character" สำหรับความคิดสร้างสรรค์แบบสุ่ม`}</li>
           </ul>
         </div>
 
         <div className="mt-6 text-center text-sm text-gray-500">
           <p>
-            Compatible with: Midjourney, DALL-E, Stable Diffusion, และ AI image
-            generators อื่นๆ
+            {`Compatible with: Midjourney, DALL-E, Stable Diffusion, และ AI image
+            generators อื่นๆ`}
           </p>
         </div>
       </div>
