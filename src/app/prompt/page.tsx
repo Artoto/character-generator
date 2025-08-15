@@ -10,12 +10,16 @@ interface CharacterOptions {
   nature: string;
   style: string;
   hairColor: string;
+  hairDecorations: string;
   eyeColor: string;
   clothing: string;
+  clothingColor: string;
   pose: string;
   background: string;
   mood: string;
   artStyle: string;
+  aspectRatio: string;
+  phase: string;
 }
 
 const CharacterPromptGenerator: React.FC = () => {
@@ -27,12 +31,17 @@ const CharacterPromptGenerator: React.FC = () => {
     age: "young adult",
     style: "anime",
     hairColor: "black",
+    hairDecorations: "none",
     eyeColor: "brown",
     clothing: "casual",
+    clothingColor: "black",
     pose: "standing",
     background: "simple",
     mood: "happy",
     artStyle: "digital art",
+    aspectRatio: "9:16",
+    phase:
+      "A shot that clearly shows the entire character from head to toe, controlling the character's composition and clothing.",
   });
 
   const [generatedPrompt, setGeneratedPrompt] = useState("");
@@ -40,7 +49,16 @@ const CharacterPromptGenerator: React.FC = () => {
 
   const characterOptions = {
     gender: ["male", "female", "non-binary"],
-    hair: ["long", "short", "curly", "straight"],
+    hair: [
+      "Long",
+      "Short",
+      "Curly",
+      "Straight",
+      "Long tied up",
+      "Long tied up with bangs",
+      "Long tied up with one side braid",
+      "Long braid",
+    ],
     nature: ["beautiful", "cute", "handsome", "ugly"],
     age: [
       "child",
@@ -59,6 +77,14 @@ const CharacterPromptGenerator: React.FC = () => {
       "3D CGI",
     ],
     theme: ["wuxia", "martial artist", "ancient china", "ancient thai"],
+    hairDecorations: [
+      "flower",
+      "ribbon",
+      "headband",
+      "tiara",
+      "hairpin",
+      "none",
+    ],
     hairColor: [
       "black",
       "brown",
@@ -91,6 +117,18 @@ const CharacterPromptGenerator: React.FC = () => {
       "streetwear",
       "traditional",
       "traditional Chinese",
+    ],
+    clothingColor: [
+      "black",
+      "brown",
+      "blonde",
+      "red",
+      "blue",
+      "pink",
+      "purple",
+      "green",
+      "white",
+      "silver",
     ],
     pose: [
       "standing",
@@ -130,10 +168,21 @@ const CharacterPromptGenerator: React.FC = () => {
       "cel shading",
       "photorealistic",
     ],
+    aspectRatio: ["9:16", "4:3", "1:1", "3:4"],
+    phase: [
+      "A shot that emphasizes a specific part of the face, the face, or the mouth",
+      "A full-length shot of the face, emphasizing the character's emotions",
+      "A shot of a character from the chest up, emphasizing emotion and the upper body",
+      "A shot that follows a character from the waist up, consistently throughout the scene",
+      "A shot that emphasizes the entire body and steps upwards.",
+      "A shot that clearly shows the entire character from head to toe, controlling the character's composition and clothing.",
+      "A full-length shot of a character, emphasizing the importance of visualizing the character's relationship to the story.",
+      "This is referred to here, emphasizing the prominence of the scenery and the story.",
+    ],
   };
 
   const promptTemplates = [
-    "A {age} {gender} {nature} {theme} ,{style} style, character with {hair} {hairColor} hair and {eyeColor} eyes, {mood} expression, wearing {clothing}, {pose},  {background} background, {artStyle}, high quality, detailed",
+    "A {age} {gender} {nature} {theme} ,{style} style, character with  {hairColor} {hairDecorations} {hair} hair and {eyeColor} eyes, {mood} expression, wearing {clothing} {clothingColor}, {pose},  {background} background, {artStyle}, cinematic lighting, ultra high quality, 8k, epic , aspect ratio {aspectRatio} , {phase}",
   ];
 
   const generatePrompt = () => {
@@ -208,12 +257,16 @@ const CharacterPromptGenerator: React.FC = () => {
         return "ธีม";
       case "nature":
         return "ลักษณะ";
+      case "hairDecorations":
+        return "เครื่องประดับผม";
       case "hairColor":
         return "สีผม";
       case "eyeColor":
         return "สีตา";
       case "clothing":
         return "เสื้อผ้า";
+      case "clothingColor":
+        return "สีเสื้อผ้า";
       case "pose":
         return "ท่าโพส";
       case "background":
