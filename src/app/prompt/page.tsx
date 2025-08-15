@@ -40,8 +40,7 @@ const CharacterPromptGenerator: React.FC = () => {
     mood: "happy",
     artStyle: "digital art",
     aspectRatio: "9:16",
-    phase:
-      "A shot that clearly shows the entire character from head to toe, controlling the character's composition and clothing.",
+    phase: "Full Shot",
   });
 
   const [generatedPrompt, setGeneratedPrompt] = useState("");
@@ -170,19 +169,19 @@ const CharacterPromptGenerator: React.FC = () => {
     ],
     aspectRatio: ["9:16", "4:3", "1:1", "3:4"],
     phase: [
-      "A shot that emphasizes a specific part of the face, the face, or the mouth",
-      "A full-length shot of the face, emphasizing the character's emotions",
-      "A shot of a character from the chest up, emphasizing emotion and the upper body",
-      "A shot that follows a character from the waist up, consistently throughout the scene",
-      "A shot that emphasizes the entire body and steps upwards.",
-      "A shot that clearly shows the entire character from head to toe, controlling the character's composition and clothing.",
-      "A full-length shot of a character, emphasizing the importance of visualizing the character's relationship to the story.",
-      "This is referred to here, emphasizing the prominence of the scenery and the story.",
+      "Extreme Close-up",
+      "Close-up",
+      "Medium Close-up",
+      "Medium Shot",
+      "Medium Full Shot",
+      "Full Shot",
+      "Long Shot",
+      "Extreme Long Shot",
     ],
   };
 
   const promptTemplates = [
-    "A {age} {gender} {nature} {theme} ,{style} style, character with  {hairColor} {hairDecorations} {hair} hair and {eyeColor} eyes, {mood} expression, wearing {clothing} {clothingColor}, {pose},  {background} background, {artStyle}, cinematic lighting, ultra high quality, 8k, epic , aspect ratio {aspectRatio} , {phase}",
+    "A {phase} of a {age} {gender} {nature} {theme} ,{style} style, character with  {hairColor} {hairDecorations} {hair} hair and {eyeColor} eyes, {mood} expression, wearing {clothing} {clothingColor}, {pose},  {background} background, {artStyle}, cinematic lighting, ultra high quality, 8k , Focus on emphasizing the visual storytelling of the character. The aspect ratio must be {aspectRatio}",
   ];
 
   const generatePrompt = () => {
